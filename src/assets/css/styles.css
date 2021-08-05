@@ -1,0 +1,230 @@
+/****Header***/
+nav.navbar{
+    background-color: darkblue;
+    padding: 10px;
+}
+.navbar-light .navbar-nav .nav-link,.navbar-light .navbar-brand ,.navbar-nav a {
+    color: white;
+}
+.navbar a:hover{
+    color: white;
+    background-color: orange;
+}
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+.navbar-toggler-icon{
+    background: white;
+}
+.dropdown-item{
+    background-color: darkblue;
+}
+#active{
+    background-color: orange;
+}
+/***Home***/
+#cityList{
+    margin: 5px;
+}
+#cities{
+    padding: 0px;
+}
+#cities div{
+    background-color: aquamarine;
+    margin: 2px;
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+#cities div:hover{
+    cursor: pointer;
+}
+#cityInput{
+    width: 60%;
+    margin: 15px auto 5px;
+}
+#cityInput input{
+    width: 60%;
+    margin: 0px 20% 0px 20%;
+}
+#weatherCart{
+    width: 60%;
+    height: 500px;
+    margin: 20px auto 20px;
+    box-sizing: border-box;
+}
+#weatherCondition{
+    height: 70%;
+    padding: 4%;
+    font-size: 1.6em;
+    background-color: yellow;
+    color: green;
+    font-weight: bold;
+}
+#weatherCondition img{
+    width: 40%;
+    height: 80%;
+    margin: 0px 30% 0px;
+    vertical-align: unset;
+    position: relative;
+    top: 40px;
+}
+#cityName{
+    height: 30%;
+    font-size: 1.4em;
+    margin: 0px;
+    border-top: 1px solid black;
+    box-sizing: border-box;
+}
+#cityName div{
+    padding: 2%;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+}
+#cityName>div{
+    border-right: 1px solid black;
+}
+#loading{
+    margin: 40px 0px 40px;
+    text-align: center;
+}
+#cityName #date{
+    padding: 0px;
+    margin: 0px;
+    font-weight: 1 em;
+}
+/***Footer**/
+.fab,.fas{
+    font-size: 1.8em;
+    padding: 5px;
+    color: black;
+}
+.social{
+    width: max-content;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.social .fab:hover,.social .fas:hover{
+    color: red;
+}
+.follow{
+    text-align: center;
+}
+.footer{
+    background-color: bisque;
+}
+.footer .row .inner{
+    border: 1px solid black;
+}
+.footer_quote{
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+.quote{
+    padding: 5px;
+    font-size: 1.2em;
+    color: purple;
+    font-weight: bold;
+}
+.address_div{
+    padding: 10px;
+    text-align: center;
+    margin-top: 15px;
+}
+.links{
+    padding-top: 10px;
+    margin-top: 15px;
+}
+.links li{
+    padding: 2px;
+    border: 1px solid blue;
+    text-align: center;
+    font-size: 1.1em;
+}
+.links li:hover{
+    background-color: aquamarine;
+    cursor: pointer;
+}
+.links a{
+    text-decoration: none;
+    color: purple;
+    font-weight: bold;
+}
+.copy{
+    font-weight: bold;
+}
+/**Extraa Extra small devices***/
+@media(max-width: 575px){
+    #weatherCart{
+        width: 90%;
+    }
+    #weatherCondition img {
+        height: 60%;
+    }
+    #cityName{
+        margin-top: -2px;
+        box-sizing: border-box;
+        font-size: 1.2em;
+    }
+    #cityName>div{
+        padding: 3px;
+        border: 1px solid black;
+    }
+    .links ul{
+        width: 60%;
+        padding: 0px;
+        margin: auto;
+    }
+    #cities div{
+        margin: 3px 15px 3px 15px;
+    }
+}
+
+/**Extra small devices**/
+@media(min-width: 576px) and (max-width: 609px){
+    .links ul{
+        width: 60%;
+        padding: 0px;
+        margin: auto;
+    }
+    #weatherCart{
+        width: 90%;
+    }
+    #weatherCondition img {
+        height: 60%;
+    }
+    #cityName>div{
+        padding: 3px;
+    }
+}
+/***Small devices***/
+@media(max-width: 766px) and (min-width: 610px){
+    #weatherCart{
+        width: 90%;
+        height: 600px;
+    }
+    .links ul{
+        width: 60%;
+        padding: 0px;
+        margin: auto;
+    }
+}
+
+/***Medium devices***/
+@media(min-width: 767px) and (max-width: 991px){
+    .links ul{
+        width: 60%;
+        padding: 0px;
+        margin: auto;
+    }
+    #weatherCart{
+        width: 80%;
+    }
+}
+
+/***Large devices***/
+@media(min-width: 992px) and (max-width: 1199px){
+    
+}
