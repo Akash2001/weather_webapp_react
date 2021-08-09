@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from 'react-router-dom';
 
 export default class Footer extends Component {
     render() {
@@ -20,10 +21,6 @@ export default class Footer extends Component {
                         </div>
                         <div className="inner col-lg-4 col-sm-12 col-xs-12 hide-sm">
                             <div className="links">
-                                <ul type="none" className="lists">
-                                    <li><a href="/">About Us<i className="fas fa-arrow-right"></i></a></li>
-                                    <li><a href="contact.html">Contact Us<i className="fas fa-arrow-right"></i></a></li>
-                                </ul><br/>
                                 <p className="follow">
                                     Follow us !
                                 </p>

@@ -6,7 +6,6 @@ import '../assets/css/styles.css'
 import rain from '../assets/images/rain.jpg';
 import clear from '../assets/images/clear.png';
 import cloud from '../assets/images/cloud.jpg';
-import { getAllByPlaceholderText, getDefaultNormalizer } from "@testing-library/react";
 
 const Cities = (props) => {
     return (
@@ -21,16 +20,16 @@ const Cities = (props) => {
 const Weather = (props) => {
     const weather = props.weather[0].main;
     var temp = props.main.temp;
-    temp-=273.5;
-    temp=Math.ceil(temp);
+    temp -= 273.5;
+    temp = Math.ceil(temp);
     var img = cloud;
     if (weather === 'Clear') {
         img = clear;
     }
-    if (weather === 'Rain'|| weather==='Thunderstorm') {
+    if (weather === 'Rain' || weather === 'Thunderstorm') {
         img = rain;
     }
-    const date = new Date(props.dt*1000);
+    const date = new Date(props.dt * 1000);
     return (
         <div id="weatherCart">
             <div id="weatherCondition">
@@ -39,7 +38,7 @@ const Weather = (props) => {
             </div>
             <div id="cityName" className="row">
                 <div className="col-sm-8">
-                    {props.name}<br/>
+                    {props.name}<br />
                     <div id="date">{date.toString()}</div>
                 </div>
                 <div className="col-sm-4">
@@ -54,30 +53,24 @@ export default class Home extends Component {
     constructor(props) {
         super(props);
 
-        this.state={
+        this.state = {
             city: ''
         }
 
         this.getData = this.getData.bind(this);
         this.getInput = this.getInput.bind(this);
     }
-    getInput(e){
+    getInput(e) {
         this.getData(e.target.value);
     }
     getData(city) {
         ReactDOM.render(<div id="loading"><h4>...Loading</h4></div>, document.getElementById('weather'));
         axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=3cfc2f0517db7bc62b4eed703982342d')
             .then(res => {
-                console.log(res.data);
-
                 ReactDOM.render(<Weather {...res.data} />, document.getElementById('weather'));
-
             })
             .catch((err) => {
-                console.log('Hi');
-                console.log(err);
-
-                ReactDOM.render(<center><h4>Something went wrong!</h4></center>, document.getElementById('weather'));
+                ReactDOM.render(<center><h4>City not found!</h4></center>, document.getElementById('weather'));
             });
     }
     render() {
@@ -105,7 +98,7 @@ export default class Home extends Component {
         ];
         return (
             <>
-            <center><h3>Select a city</h3></center>
+                <center><h3>Select a city</h3></center>
                 <div id="cityList" className="row">
                     {cities.map((city) => {
                         return <Cities key={city.id} {...city} getData={this.getData} />
@@ -113,9 +106,10 @@ export default class Home extends Component {
                 </div>
 
                 <div id="cityInput">
+                    <center><h4>Or</h4></center>
                     <center><h4>Enter a city</h4></center>
                     <form>
-                        <input type="text" onInput={this.getInput}/>
+                        <input type="text" onInput={this.getInput} />
                     </form>
                 </div>
 
