@@ -30,6 +30,9 @@ nav.navbar{
     padding: 0px;
 }
 #cities div{
+    box-shadow: 1px;
+}
+#cities div{
     background-color: aquamarine;
     margin: 2px;
     border: 1px solid black;
@@ -52,12 +55,13 @@ nav.navbar{
     height: 500px;
     margin: 20px auto 20px;
     box-sizing: border-box;
+    
+    box-shadow: 0px 0px 10px 0px #888888;
 }
 #weatherCondition{
     height: 70%;
     padding: 4%;
     font-size: 1.6em;
-    background-color: yellow;
     color: green;
     font-weight: bold;
 }
@@ -78,12 +82,14 @@ nav.navbar{
 }
 #cityName div{
     padding: 2%;
-    background-color: orange;
-    color: white;
+    color: black;
     font-weight: bold;
 }
-#cityName>div{
+#cityName > div{
     border-right: 1px solid black;
+}
+#cityName div.temp{
+    border-right: none;
 }
 #loading{
     margin: 40px 0px 40px;
@@ -184,8 +190,10 @@ nav.navbar{
         font-size: 1.2em;
     }
     #cityName>div{
-        padding: 3px;
-        border: 1px solid black;
+        border-right: none;
+    }
+    #cityName>.topBox{
+        border-bottom: 1px solid black;
     }
     .links ul{
         width: 60%;

@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React from "react";
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,11 +37,11 @@ const Weather = (props) => {
                 <img src={img} alt={weather} />
             </div>
             <div id="cityName" className="row">
-                <div className="col-sm-8">
+                <div className="col-sm-8 topBox">
                     {props.name}<br />
                     <div id="date">{date.toString()}</div>
                 </div>
-                <div className="col-sm-4">
+                <div className="col-sm-4 temp">
                     {temp} deg C
                 </div>
             </div>
@@ -49,31 +49,22 @@ const Weather = (props) => {
     );
 }
 
-export default class Home extends Component {
-    constructor(props) {
-        super(props);
+const getInput = (e) => {
+    getData(e.target.value);
+}
 
-        this.state = {
-            city: ''
-        }
+const getData = (city) => {
+    ReactDOM.render(<div id="loading"><h4>...Loading</h4></div>, document.getElementById('weather'));
+    axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=3cfc2f0517db7bc62b4eed703982342d')
+        .then(res => {
+            ReactDOM.render(<Weather {...res.data} />, document.getElementById('weather'));
+        })
+        .catch((err) => {
+            ReactDOM.render(<center><h4>City not found!</h4></center>, document.getElementById('weather'));
+        });
+}
 
-        this.getData = this.getData.bind(this);
-        this.getInput = this.getInput.bind(this);
-    }
-    getInput(e) {
-        this.getData(e.target.value);
-    }
-    getData(city) {
-        ReactDOM.render(<div id="loading"><h4>...Loading</h4></div>, document.getElementById('weather'));
-        axios.get('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=3cfc2f0517db7bc62b4eed703982342d')
-            .then(res => {
-                ReactDOM.render(<Weather {...res.data} />, document.getElementById('weather'));
-            })
-            .catch((err) => {
-                ReactDOM.render(<center><h4>City not found!</h4></center>, document.getElementById('weather'));
-            });
-    }
-    render() {
+const Home = () => {
         const cities = [
             { name: 'Jalna' },
             { name: 'London' },
@@ -101,7 +92,7 @@ export default class Home extends Component {
                 <center><h3>Select a city</h3></center>
                 <div id="cityList" className="row">
                     {cities.map((city) => {
-                        return <Cities key={city.id} {...city} getData={this.getData} />
+                        return <Cities key={city.id} {...city} getData={(city) =>getData(city)} />
                     })}
                 </div>
 
@@ -109,7 +100,7 @@ export default class Home extends Component {
                     <center><h4>Or</h4></center>
                     <center><h4>Enter a city</h4></center>
                     <form>
-                        <input type="text" onInput={this.getInput} />
+                        <input type="text" onInput={getInput} />
                     </form>
                 </div>
 
@@ -118,5 +109,6 @@ export default class Home extends Component {
                 </div>
             </>
         );
-    }
 }
+
+export default Home;

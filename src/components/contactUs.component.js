@@ -1,7 +1,6 @@
-import { Component } from "react";
+import React from "react";
 
-export default class ContactUs extends Component{
-    render(){
+const ContactUs = () =>{
         return(
             <div id="contactUs">
                 <center><h4>Contact Us</h4></center>
@@ -9,5 +8,6 @@ export default class ContactUs extends Component{
                 <p>Adress : <br/>Yashwant Nagar,<br/> Ambad Road, <br/>Jalna</p>
             </div>
         );
-    }
 }
+
+export default ContactUs;

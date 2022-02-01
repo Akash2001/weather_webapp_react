@@ -1,8 +1,6 @@
-import { Component } from "react";
-import { Link } from 'react-router-dom';
+import React from "react";
 
-export default class Footer extends Component {
-    render() {
+const Footer = () =>{
         return (
             <div className="footer">
                 <div className="container-fluid">
@@ -38,5 +36,6 @@ export default class Footer extends Component {
             </div>
 
         );
-    }
 }
+
+export default Footer;
